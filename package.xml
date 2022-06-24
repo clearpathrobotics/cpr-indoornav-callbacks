@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>cpr_indoornav_callbacks</name>
+  <version>0.0.0</version>
+  <description>Scripts for handling custom callbacks at endpoints in CPR IndoorNav</description>
+  <maintainer email="civerachb@clearpathrobotics.com">Chris Iverach-Brereton</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>rospy</depend>
+
+  <exec_depend>cpr_gps_navigation_msgs</exec_depend>
+  <exec_depend>cpr_indoornav_callbacks</exec_depend>
+  <exec_depend>ptz_control_msgs</exec_depend>
+  <exec_depend>video_recorder_msgs</exec_depend>
+
+  <export>
+  </export>
+</package>
