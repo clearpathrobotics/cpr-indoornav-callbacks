@@ -10,7 +10,6 @@
   <depend>rospy</depend>
 
   <exec_depend>cpr_gps_navigation_msgs</exec_depend>
-  <exec_depend>cpr_indoornav_callbacks</exec_depend>
   <exec_depend>ptz_control_msgs</exec_depend>
   <exec_depend>video_recorder_msgs</exec_depend>
 
