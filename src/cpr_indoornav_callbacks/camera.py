@@ -60,10 +60,12 @@ class StartRecordingCallback:
     ## Create a callback instance to start recording from the camera
     #
     #  \param rec_action     The ROS action to call to start recording
-    #  \param max_duration   The maximum duration to record in seconds (if 0 or negative we will record forever)
+    #  \param duration       The desired duration to record in seconds (if 0 or negative we will record forever)
+    #  \param filename       Optional filename for the resulting AVI file.
     def __init__(self,
                  rec_action="/camera/image_raw/start_recording",
-                 max_duration=0):
+                 max_duration=0,
+                 filename=""):
 
         rospy.init_node('start_video_callback_node', anonymous=True)
 
@@ -74,7 +76,7 @@ class StartRecordingCallback:
         max_duration = int(max_duration)
 
         self.filename = filename
-        self.max_duration = max_duration
+        self.duration = duration
         self.rec_action_name = rec_action
 
 
@@ -88,7 +90,7 @@ class StartRecordingCallback:
             client.wait_for_server()
 
             goal = StartRecordingGoal()
-            goal.duration = self.max_duration
+            goal.duration = self.duration
             goal.filename = self.filename
 
             client.send_goal(goal)
