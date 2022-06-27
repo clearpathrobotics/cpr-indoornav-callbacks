@@ -71,9 +71,9 @@ class StartRecordingCallback:
 
         # max duration is an unsigned int64, so if it's negative treat it as zero
         # always force it to be an int
-        if max_duration < 0:
-            max_duration = 0
-        max_duration = int(max_duration)
+        if duration < 0:
+            duration = 0
+        duration = int(duration)
 
         self.filename = filename
         self.duration = duration
