@@ -64,7 +64,7 @@ class StartRecordingCallback:
     #  \param filename       Optional filename for the resulting AVI file.
     def __init__(self,
                  rec_action="/camera/image_raw/start_recording",
-                 max_duration=0,
+                 duration=0,
                  filename=""):
 
         rospy.init_node('start_video_callback_node', anonymous=True)
