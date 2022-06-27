@@ -15,18 +15,16 @@ from video_recorder_msgs.msg import StopRecordingAction, StopRecordingGoal
 class SaveImageCallback:
     ## Create a callback instance to save a single image from the camera
     #
-    #  \param camera_id    A human-readible name indicating the source of the image (e.g. 'ptz')
     #  \param img_action   The ROS action to call to capture an image from the camera
     #  \param delay        An optional delay to apply before taking the picture
     #  \param filename     An optional filename to pass to the action
-    def __init__(self, camera_id,
-                 img_action='/camera/image_raw/capture/save_image',
+    def __init__(self,
+                 img_action='/camera/image_raw/save_image',
                  delay=0,
                  filename=''):
 
         rospy.init_node('image_callback_node', anonymous=True)
 
-        self.camera_id = camera_id
         self.img_action_name = img_action
         self.delay = delay
         self.filename = filename
@@ -63,8 +61,8 @@ class StartRecordingCallback:
     #
     #  \param rec_action     The ROS action to call to start recording
     #  \param max_duration   The maximum duration to record in seconds (if 0 or negative we will record forever)
-    def __init__(self, camera_id,
-                 rec_action="/camera/image_raw/capture/start_recording",
+    def __init__(self
+                 rec_action="/camera/image_raw/start_recording",
                  max_duration=0):
 
         rospy.init_node('start_video_callback_node', anonymous=True)
@@ -114,7 +112,7 @@ class StopRecordingCallback:
     #
     #  \param rec_action    The ROS action to call to stop recording
     def __init__(self,
-                 rec_action="/camera/image_raw/capture/stop_recording"):
+                 rec_action="/camera/image_raw/stop_recording"):
 
         rospy.init_node('stop_video_callback_node', anonymous=True)
         self.rec_action_name = rec_action
