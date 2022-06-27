@@ -61,7 +61,7 @@ class StartRecordingCallback:
     #
     #  \param rec_action     The ROS action to call to start recording
     #  \param max_duration   The maximum duration to record in seconds (if 0 or negative we will record forever)
-    def __init__(self
+    def __init__(self,
                  rec_action="/camera/image_raw/start_recording",
                  max_duration=0):
 
