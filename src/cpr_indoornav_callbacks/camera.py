@@ -7,9 +7,9 @@ import rospy
 import actionlib
 
 from cpr_indoornav_callbacks.utils import *
-from video_recorder.msg import SaveImageAction, SaveImageGoal
-from video_recorder.msg import StartRecordingAction, StartRecordingGoal
-from video_recorder.msg import StopRecordingAction, StopRecordingGoal
+from video_recorder_msgs.msg import SaveImageAction, SaveImageGoal
+from video_recorder_msgs.msg import StartRecordingAction, StartRecordingGoal
+from video_recorder_msgs.msg import StopRecordingAction, StopRecordingGoal
 
 ## Saves a single image from an image topic
 class SaveImageCallback:
