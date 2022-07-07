@@ -41,7 +41,7 @@ class PtzCallback:
             zoom = self.zoom
 
             rospy.loginfo("Requesting PTZ move to position {0} {1} {2}".format(pan, tilt, zoom))
-            goal = PTZGoal()
+            goal = PtzGoal()
             goal.pan = float(pan)
             goal.tilt = float(tilt)
             goal.zoom = float(zoom)
@@ -56,7 +56,7 @@ class PtzCallback:
 
         except Exception as e:
             ok = False
-            rospy.logerror("Failed to run PTZ callback: {0}".format(e))
+            rospy.logerr("Failed to run PTZ callback: {0}".format(e))
 
         finally:
             return ok
