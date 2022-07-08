@@ -11,6 +11,9 @@ import actionlib
 from cpr_indoornav_callbacks.utils import *
 from cpr_gps_navigation_msgs.msg import DockGoal, UITaskAction, UITaskGoal
 
+ENABLE_PRE_DOCK=1
+DISABLE_PRE_DOCK=0
+
 ## Docks the robot with its charger
 class DockCallback:
     ## Create a callback instance to dock the robot
@@ -29,7 +32,7 @@ class DockCallback:
             client.wait_for_server()
 
             goal = UITaskGoal()
-            goal.floats = [DockGoal.DOCK]
+            goal.floats = [DockGoal.DOCK, DISABLE_PRE_DOCK]
 
             client.send_goal(goal)
             rospy.loginfo('Dock action started')
@@ -63,7 +66,7 @@ class UndockCallback:
             client.wait_for_server()
 
             goal = UITaskGoal()
-            goal.floats = [DockGoal.UNDOCK]
+            goal.floats = [DockGoal.UNDOCK, DISABLE_PRE_DOCK]
 
             client.send_goal(goal)
             rospy.loginfo('Undock action started')
