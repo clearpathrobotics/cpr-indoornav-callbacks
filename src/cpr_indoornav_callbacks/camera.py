@@ -23,8 +23,6 @@ class SaveImageCallback:
                  delay=0,
                  filename=''):
 
-        rospy.init_node('image_callback_node', anonymous=True)
-
         self.img_action_name = img_action
         self.delay = delay
         self.filename = filename
@@ -66,8 +64,6 @@ class StartRecordingCallback:
                  rec_action="/camera/image_raw/start_recording",
                  duration=0,
                  filename=""):
-
-        rospy.init_node('start_video_callback_node', anonymous=True)
 
         # max duration is an unsigned int64, so if it's negative treat it as zero
         # always force it to be an int
@@ -116,7 +112,6 @@ class StopRecordingCallback:
     def __init__(self,
                  rec_action="/camera/image_raw/stop_recording"):
 
-        rospy.init_node('stop_video_callback_node', anonymous=True)
         self.rec_action_name = rec_action
 
     ## Call the action to stop recording video

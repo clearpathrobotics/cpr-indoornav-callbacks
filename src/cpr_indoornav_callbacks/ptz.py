@@ -20,7 +20,6 @@ class PtzCallback:
     #  \param ptz_action   The ROS action to call to move the camera
     def __init__(self, pan, tilt, zoom, ptz_action="/ptz/move_ptz"):
 
-        rospy.init_node('ptz_callback_node', anonymous=True)
         self.ptz_action_name = ptz_action
         self.pan = pan
         self.tilt = tilt

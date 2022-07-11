@@ -19,7 +19,6 @@ class DockCallback:
     ## Create a callback instance to dock the robot
     def __init__(self, action='/charge_robot'):
 
-        rospy.init_node('dock_node', anonymous=True)
         self.action = action
 
     ## Call the action to dock the robot
@@ -53,7 +52,6 @@ class UndockCallback:
     ## Create a callback instance to undock the robot
     def __init__(self, action='/charge_robot'):
 
-        rospy.init_node('undock_node', anonymous=True)
         self.action = action
 
     ## Call the action to dock the robot
