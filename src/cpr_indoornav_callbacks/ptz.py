@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+"""
+Generic callbacks for moving a PTU or PTZ camera
+"""
 
 import rospy
 import actionlib
