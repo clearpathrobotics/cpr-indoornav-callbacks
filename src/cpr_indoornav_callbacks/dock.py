@@ -6,6 +6,7 @@ Generic callbacks for docking and undocking from a wireless charger
 import actionlib
 import dynamic_reconfigure.client
 import json
+import math
 import rospy
 import urllib.request
 
@@ -45,12 +46,12 @@ class DockCallback:
                 location = Twist()
                 location.linear.x = docks[0]['geometry']['coordinates'][0]
                 location.linear.y = docks[0]['geometry']['coordinates'][1]
-                location.angular.z = docks[0]['properties']['yaw']
+                location.angular.z = docks[0]['properties']['yaw'] + math.pi/2  # add a 90-degree offset to fix the alignment
             else:
                 location = Twist()
                 location.linear.x = docks[0]['geometry']['coordinates'][0]
                 location.linear.y = docks[0]['geometry']['coordinates'][1]
-                location.angular.z = docks[0]['properties']['yaw']
+                location.angular.z = docks[0]['properties']['yaw'] + math.pi/2  # add a 90-degree offset to fix the alignment
 
         except Exception as err:
             rospy.logerr("Failed to locate the dock on the map: {0}".format(err))
