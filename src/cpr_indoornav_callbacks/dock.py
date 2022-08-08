@@ -67,7 +67,8 @@ class DockCallback:
         params = {
             'target_x': location.linear.x,
             'target_y': location.linear.y,
-            'target_yaw': location.angular.z
+            'target_yaw': location.angular.z,
+            'dock_with_outdoornav': False
         }
         client.update_configuration(params)
 
