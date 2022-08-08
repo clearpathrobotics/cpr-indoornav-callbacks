@@ -46,12 +46,12 @@ class DockCallback:
                 location = Twist()
                 location.linear.x = docks[0]['geometry']['coordinates'][0]
                 location.linear.y = docks[0]['geometry']['coordinates'][1]
-                location.angular.z = docks[0]['properties']['yaw'] + math.pi/2  # add a 90-degree offset to fix the alignment
+                location.angular.z = docks[0]['properties']['yaw']
             else:
                 location = Twist()
                 location.linear.x = docks[0]['geometry']['coordinates'][0]
                 location.linear.y = docks[0]['geometry']['coordinates'][1]
-                location.angular.z = docks[0]['properties']['yaw'] + math.pi/2  # add a 90-degree offset to fix the alignment
+                location.angular.z = docks[0]['properties']['yaw']
 
         except Exception as err:
             rospy.logerr("Failed to locate the dock on the map: {0}".format(err))
