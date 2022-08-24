@@ -20,7 +20,7 @@ DISABLE_PRE_DOCK=0
 ## Docks the robot with its charger
 class DockCallback:
     ## Create a callback instance to dock the robot
-    def __init__(self, action='/charge_robot', backpack_host="10.252.252.100", backpack_port=5000):
+    def __init__(self, action='/charge_robot', backpack_host="10.252.252.1", backpack_port=5000):
         self.backpack_host = backpack_host
         self.backpack_port = backpack_port
         self.action = action
