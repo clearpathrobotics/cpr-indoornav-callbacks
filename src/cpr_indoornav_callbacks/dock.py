@@ -44,14 +44,15 @@ class DockCallback:
                 rospy.logwarn("Multiple docks were found on the map. Using the first one")
                 # TODO: use tf to look up the robot's location and dynamically choose the closest dock
                 location = Twist()
-                location.linear.x = docks[0]['geometry']['coordinates'][0]
-                location.linear.y = docks[0]['geometry']['coordinates'][1]
                 location.angular.z = docks[0]['properties']['yaw']
+                location.linear.x = docks[0]['geometry']['coordinates'][0] + 0.25 * math.cos(location.angular.z)
+                location.linear.y = docks[0]['geometry']['coordinates'][1] + 0.25 * math.sin(location.angular.z)
+
             else:
                 location = Twist()
-                location.linear.x = docks[0]['geometry']['coordinates'][0]
-                location.linear.y = docks[0]['geometry']['coordinates'][1]
                 location.angular.z = docks[0]['properties']['yaw']
+                location.linear.x = docks[0]['geometry']['coordinates'][0] + 0.25 * math.cos(location.angular.z)
+                location.linear.y = docks[0]['geometry']['coordinates'][1] + 0.25 * math.sin(location.angular.z)
 
         except Exception as err:
             rospy.logerr("Failed to locate the dock on the map: {0}".format(err))
